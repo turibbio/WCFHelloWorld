@@ -10,10 +10,39 @@ using System.Text;
 
 namespace WCFHelloWorld
 {
-    [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class CustomerService : ICustomerService
     {
-        List<Customer> customerList;
+        List<Customer> customerList = new List<Customer> {
+            new Customer
+            {
+                Id = 1,
+                Abilitato = true,
+                Nome = "Antonio",
+                Cognome = "Liccardi",
+                Azienda = "Overnet",
+                DataNascita = DateTime.Now,
+                Sconto = 10.45M
+            },
+            new Customer
+            {
+                Id = 2,
+                Abilitato = true,
+                Nome = "Giuseppe",
+                Cognome = "Esposito",
+                Azienda = "Overnet",
+                DataNascita = DateTime.Now,
+                Sconto = 4.32M
+            }, new Customer
+            {
+                Id = 3,
+                Abilitato = false,
+                Nome = "Michele",
+                Cognome = "Contino",
+                Azienda = "Overnet",
+                DataNascita = DateTime.ParseExact("22/02/1984", "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                Sconto = 4
+            } };
 
         public CustomerService()
         {
@@ -27,40 +56,6 @@ namespace WCFHelloWorld
 
         public void AddCustomer(Customer customer)
         {
-            customerList = new List<Customer>();
-            customerList.Add(new Customer
-            {
-                Id = 1,
-                Abilitato = true,
-                Nome = "Antonio",
-                Cognome = "Liccardi",
-                Azienda = "Overnet",
-                DataNascita = DateTime.Now,
-                Sconto = 10.45M
-            });
-
-            customerList.Add(new Customer
-            {
-                Id = 2,
-                Abilitato = true,
-                Nome = "Giuseppe",
-                Cognome = "Esposito",
-                Azienda = "Overnet",
-                DataNascita = DateTime.Now,
-                Sconto = 4.32M
-            });
-
-            customerList.Add(new Customer
-            {
-                Id = 3,
-                Abilitato = false,
-                Nome = "Michele",
-                Cognome = "Contino",
-                Azienda = "Overnet",
-                DataNascita = DateTime.ParseExact("22/02/1984", "dd/MM/yyyy", CultureInfo.InvariantCulture),
-                Sconto = 4
-            });
-
             customerList.Add(customer);
         }
 
@@ -70,7 +65,7 @@ namespace WCFHelloWorld
         public Customer GetCustomerById(int id)
         {
             //return customerList.Where(x => x.Id == id).FirstOrDefault();
-            return customerList.FirstOrDefault(x => x.Id == id)  ?? new Customer();
+            return customerList.FirstOrDefault(x => x.Id == id) ?? new Customer();
         }
 
         public List<Customer> GetCustomers()

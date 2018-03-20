@@ -13,14 +13,14 @@ namespace WCFHelloWorldClient
         {
             CustomerServiceClient client = new CustomerServiceClient();
 
-            //client.AddCustomer(new Customer
-            //{
-            //    Abilitato = true,
-            //    Id = 4,
-            //    Azienda = "Overnet",
-            //    Nome = "Pippo",
-            //    Cognome = "Esposito"
-            //});
+            client.AddCustomer(new Customer
+            {
+                Abilitato = true,
+                Id = 4,
+                Azienda = "Overnet",
+                Nome = "Pippo",
+                Cognome = "Esposito"
+            });
 
             var customers = client.GetCustomerById(1);
         }
