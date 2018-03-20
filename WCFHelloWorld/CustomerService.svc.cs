@@ -10,7 +10,7 @@ using System.Text;
 
 namespace WCFHelloWorld
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class CustomerService : ICustomerService
     {
         List<Customer> customerList = new List<Customer> {
