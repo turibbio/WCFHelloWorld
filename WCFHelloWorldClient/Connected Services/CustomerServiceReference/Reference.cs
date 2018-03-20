@@ -154,76 +154,9 @@ namespace WCFHelloWorldClient.CustomerServiceReference {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/WCFHelloWorld")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomerServiceReference.ICustomerService")]
     public interface ICustomerService {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetData", ReplyAction="http://tempuri.org/ICustomerService/GetDataResponse")]
-        string GetData(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetData", ReplyAction="http://tempuri.org/ICustomerService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomers", ReplyAction="http://tempuri.org/ICustomerService/GetCustomersResponse")]
         WCFHelloWorldClient.CustomerServiceReference.Customer[] GetCustomers();
@@ -237,11 +170,11 @@ namespace WCFHelloWorldClient.CustomerServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomerById", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerByIdResponse")]
         System.Threading.Tasks.Task<WCFHelloWorldClient.CustomerServiceReference.Customer> GetCustomerByIdAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/ICustomerService/GetDataUsingDataContractResponse")]
-        WCFHelloWorldClient.CustomerServiceReference.CompositeType GetDataUsingDataContract(WCFHelloWorldClient.CustomerServiceReference.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/AddCustomer", ReplyAction="http://tempuri.org/ICustomerService/AddCustomerResponse")]
+        void AddCustomer(WCFHelloWorldClient.CustomerServiceReference.Customer customer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/ICustomerService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<WCFHelloWorldClient.CustomerServiceReference.CompositeType> GetDataUsingDataContractAsync(WCFHelloWorldClient.CustomerServiceReference.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/AddCustomer", ReplyAction="http://tempuri.org/ICustomerService/AddCustomerResponse")]
+        System.Threading.Tasks.Task AddCustomerAsync(WCFHelloWorldClient.CustomerServiceReference.Customer customer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -271,14 +204,6 @@ namespace WCFHelloWorldClient.CustomerServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
-        }
-        
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
-        }
-        
         public WCFHelloWorldClient.CustomerServiceReference.Customer[] GetCustomers() {
             return base.Channel.GetCustomers();
         }
@@ -295,12 +220,12 @@ namespace WCFHelloWorldClient.CustomerServiceReference {
             return base.Channel.GetCustomerByIdAsync(id);
         }
         
-        public WCFHelloWorldClient.CustomerServiceReference.CompositeType GetDataUsingDataContract(WCFHelloWorldClient.CustomerServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
+        public void AddCustomer(WCFHelloWorldClient.CustomerServiceReference.Customer customer) {
+            base.Channel.AddCustomer(customer);
         }
         
-        public System.Threading.Tasks.Task<WCFHelloWorldClient.CustomerServiceReference.CompositeType> GetDataUsingDataContractAsync(WCFHelloWorldClient.CustomerServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task AddCustomerAsync(WCFHelloWorldClient.CustomerServiceReference.Customer customer) {
+            return base.Channel.AddCustomerAsync(customer);
         }
     }
 }

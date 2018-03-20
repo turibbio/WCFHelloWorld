@@ -7,12 +7,6 @@
       <xsd:import schemaLocation="http://localhost:24201/CustomerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFHelloWorld" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ICustomerService_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
-  </wsdl:message>
-  <wsdl:message name="ICustomerService_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
-  </wsdl:message>
   <wsdl:message name="ICustomerService_GetCustomers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCustomers" />
   </wsdl:message>
@@ -25,17 +19,13 @@
   <wsdl:message name="ICustomerService_GetCustomerById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCustomerByIdResponse" />
   </wsdl:message>
-  <wsdl:message name="ICustomerService_GetDataUsingDataContract_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  <wsdl:message name="ICustomerService_AddCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomer" />
   </wsdl:message>
-  <wsdl:message name="ICustomerService_GetDataUsingDataContract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  <wsdl:message name="ICustomerService_AddCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomerResponse" />
   </wsdl:message>
   <wsdl:portType name="ICustomerService">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetData" message="tns:ICustomerService_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/GetDataResponse" message="tns:ICustomerService_GetData_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetCustomers">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetCustomers" message="tns:ICustomerService_GetCustomers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/GetCustomersResponse" message="tns:ICustomerService_GetCustomers_OutputMessage" />
@@ -44,53 +34,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetCustomerById" message="tns:ICustomerService_GetCustomerById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/GetCustomerByIdResponse" message="tns:ICustomerService_GetCustomerById_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetDataUsingDataContract" message="tns:ICustomerService_GetDataUsingDataContract_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/GetDataUsingDataContractResponse" message="tns:ICustomerService_GetDataUsingDataContract_OutputMessage" />
+    <wsdl:operation name="AddCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/AddCustomer" message="tns:ICustomerService_AddCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/AddCustomerResponse" message="tns:ICustomerService_AddCustomer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_ICustomerService" type="tns:ICustomerService">
-    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/ICustomerService/GetData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCustomers">
-      <soap:operation soapAction="http://tempuri.org/ICustomerService/GetCustomers" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCustomerById">
-      <soap:operation soapAction="http://tempuri.org/ICustomerService/GetCustomerById" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap:operation soapAction="http://tempuri.org/ICustomerService/GetDataUsingDataContract" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="CustomerService">
-    <wsdl:port name="BasicHttpBinding_ICustomerService" binding="tns:BasicHttpBinding_ICustomerService">
-      <soap:address location="http://localhost:24201/CustomerService.svc" />
-    </wsdl:port>
-  </wsdl:service>
+  <wsdl:service name="CustomerService" />
 </wsdl:definitions>

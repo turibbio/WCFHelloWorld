@@ -74,9 +74,6 @@
     <None Include="Connected Services\CustomerServiceReference\CustomerService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\CustomerServiceReference\WCFHelloWorldClient.CustomerServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\CustomerServiceReference\WCFHelloWorldClient.CustomerServiceReference.Customer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

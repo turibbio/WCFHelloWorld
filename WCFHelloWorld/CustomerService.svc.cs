@@ -4,21 +4,32 @@ using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
 
 namespace WCFHelloWorld
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
+    [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerSession)]
     public class CustomerService : ICustomerService
     {
         List<Customer> customerList;
 
         public CustomerService()
         {
+            //DateTime resultDate = DateTime.MinValue;
+            //DateTime.TryParseExact("22/02/1984", "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out resultDate);
+            //
+            //if (resultDate != DateTime.MinValue)
+            //{
+            //}
+        }
+
+        public void AddCustomer(Customer customer)
+        {
             customerList = new List<Customer>();
-            customerList.Add(new Customer {
+            customerList.Add(new Customer
+            {
                 Id = 1,
                 Abilitato = true,
                 Nome = "Antonio",
@@ -50,14 +61,12 @@ namespace WCFHelloWorld
                 Sconto = 4
             });
 
-            //DateTime resultDate = DateTime.MinValue;
-            //DateTime.TryParseExact("22/02/1984", "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out resultDate);
-            //
-            //if (resultDate != DateTime.MinValue)
-            //{
-            //}
+            customerList.Add(customer);
         }
 
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "customer/{id}")]
         public Customer GetCustomerById(int id)
         {
             //return customerList.Where(x => x.Id == id).FirstOrDefault();

@@ -12,7 +12,17 @@ namespace WCFHelloWorldClient
         static void Main(string[] args)
         {
             CustomerServiceClient client = new CustomerServiceClient();
-            var customers = client.GetCustomers();
+
+            //client.AddCustomer(new Customer
+            //{
+            //    Abilitato = true,
+            //    Id = 4,
+            //    Azienda = "Overnet",
+            //    Nome = "Pippo",
+            //    Cognome = "Esposito"
+            //});
+
+            var customers = client.GetCustomerById(1);
         }
     }
 }

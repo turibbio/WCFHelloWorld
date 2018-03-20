@@ -16,6 +16,10 @@ namespace WCFHelloWorld
         List<Customer> GetCustomers();
 
         [OperationContract]
+        [WebGet]
         Customer GetCustomerById(int id);
+
+        [OperationContract]
+        void AddCustomer(Customer customer);
     }
 }
