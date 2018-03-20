@@ -17,16 +17,6 @@ namespace WCFHelloWorld
 
         public CustomerService()
         {
-            //DateTime resultDate = DateTime.MinValue;
-            //DateTime.TryParseExact("22/02/1984", "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out resultDate);
-            //
-            //if (resultDate != DateTime.MinValue)
-            //{
-            //}
-        }
-
-        public void AddCustomer(Customer customer)
-        {
             customerList = new List<Customer>();
             customerList.Add(new Customer
             {
@@ -61,16 +51,23 @@ namespace WCFHelloWorld
                 Sconto = 4
             });
 
+            //DateTime resultDate = DateTime.MinValue;
+            //DateTime.TryParseExact("22/02/1984", "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out resultDate);
+            //
+            //if (resultDate != DateTime.MinValue)
+            //{
+            //}
+        }
+
+        public void AddCustomer(Customer customer)
+        {
             customerList.Add(customer);
         }
 
-        [WebInvoke(Method = "GET",
-            ResponseFormat = WebMessageFormat.Json,
-            UriTemplate = "customer/{id}")]
-        public Customer GetCustomerById(int id)
+        public Customer GetCustomerById(string id)
         {
             //return customerList.Where(x => x.Id == id).FirstOrDefault();
-            return customerList.FirstOrDefault(x => x.Id == id)  ?? new Customer();
+            return customerList.FirstOrDefault(x => x.Id == int.Parse(id))  ?? new Customer();
         }
 
         public List<Customer> GetCustomers()

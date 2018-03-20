@@ -16,8 +16,8 @@ namespace WCFHelloWorld
         List<Customer> GetCustomers();
 
         [OperationContract]
-        [WebGet]
-        Customer GetCustomerById(int id);
+        [WebGet(UriTemplate = "customer/{id}", ResponseFormat = WebMessageFormat.Json)]
+        Customer GetCustomerById(string id);
 
         [OperationContract]
         void AddCustomer(Customer customer);
