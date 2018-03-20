@@ -5,16 +5,30 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFHelloWorld", "WCFHelloWorld\WCFHelloWorld.csproj", "{9AF7DCA9-7096-4DA3-B908-004611C28529}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFHelloWorldClient", "WCFHelloWorldClient\WCFHelloWorldClient.csproj", "{89AD44EB-DFA0-4E48-911C-080AEAF8F1ED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9AF7DCA9-7096-4DA3-B908-004611C28529} = {9AF7DCA9-7096-4DA3-B908-004611C28529}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		COLLAUDO|Any CPU = COLLAUDO|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AF7DCA9-7096-4DA3-B908-004611C28529}.COLLAUDO|Any CPU.ActiveCfg = COLLAUDO|Any CPU
+		{9AF7DCA9-7096-4DA3-B908-004611C28529}.COLLAUDO|Any CPU.Build.0 = COLLAUDO|Any CPU
 		{9AF7DCA9-7096-4DA3-B908-004611C28529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9AF7DCA9-7096-4DA3-B908-004611C28529}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AF7DCA9-7096-4DA3-B908-004611C28529}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AF7DCA9-7096-4DA3-B908-004611C28529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89AD44EB-DFA0-4E48-911C-080AEAF8F1ED}.COLLAUDO|Any CPU.ActiveCfg = COLLAUDO|Any CPU
+		{89AD44EB-DFA0-4E48-911C-080AEAF8F1ED}.COLLAUDO|Any CPU.Build.0 = COLLAUDO|Any CPU
+		{89AD44EB-DFA0-4E48-911C-080AEAF8F1ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89AD44EB-DFA0-4E48-911C-080AEAF8F1ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89AD44EB-DFA0-4E48-911C-080AEAF8F1ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89AD44EB-DFA0-4E48-911C-080AEAF8F1ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
